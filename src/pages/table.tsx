@@ -1,14 +1,20 @@
 import DefaultLayout from '@/components/layout/main'
 import TableComponent from '@/components/table'
+import OptionsComponent from '@/components/options'
 import { personColumns, personData } from '@/config/data'
+import { ContextRegister } from '@/utils/context/useContextRegister'
 
 const TablePage = () => {
     return (
-        <DefaultLayout title="Tabla de ejemplo">
-            <section className="p-4">
+        <ContextRegister.Provider value={{
+            contentTable: personData,
+            setContentTable: () => {}
+        }}>
+            <DefaultLayout title="Tabla de ejemplo">
+                <OptionsComponent title='Titulo' canCreate={true} canExportAsCSV={true} subtitle='ejemplo' />
                 <TableComponent data={personData} columns={personColumns} />
-            </section>
-        </DefaultLayout>
+            </DefaultLayout>
+        </ContextRegister.Provider>
     )
 }
 

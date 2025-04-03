@@ -40,7 +40,7 @@ const Table = ({ data, columns }: any) => {
                     placeholder="Buscar..."
                     value={globalFilter ?? ''}
                     onChange={e => setGlobalFilter(e.target.value)}
-                    className='transition-background rounded-lg p-2 focus-visible:outline-none focus:bg-background-100 bg-background-200 shadow-lg'
+                    className='transition-background rounded-lg p-2 focus-visible:outline-none focus:bg-background-200 bg-background-100 shadow-lg'
                 />
 
                 {/* Selector de registros por página */}
@@ -49,7 +49,7 @@ const Table = ({ data, columns }: any) => {
                     <select
                         value={table.getState().pagination.pageSize}
                         onChange={(e) => table.setPageSize(Number(e.target.value))}
-                        className="rounded-lg p-2 focus:bg-background-100 bg-background-200 transition-background focus-visible:outline-none"
+                        className="rounded-lg p-2 focus:bg-background-200 bg-background-100 transition-background focus-visible:outline-none"
                     >
                         {[5, 10, 15, 20, 50].map(size => (
                             <option key={size} value={size}>
@@ -85,30 +85,40 @@ const Table = ({ data, columns }: any) => {
                         ))}
                     </thead>
                     <tbody>
-                        {table.getRowModel().rows.map((row, index) => (
-                            <tr
-                                key={row.id}
-                                className={index % 2 === 0 ? 'bg-background-200' : 'bg-background-100'}
-                            >
-                                {row.getVisibleCells().map(cell => (
-                                    <td key={cell.id} className="p-2">
-                                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                                    </td>
-                                ))}
+                        {table.getPageCount() != 0 ?
+
+                            table.getRowModel().rows.map((row, index) => (
+                                <tr
+                                    key={row.id}
+                                    className={index % 2 === 0 ? 'bg-background-200' : 'bg-background-100'}
+                                >
+                                    {row.getVisibleCells().map(cell => (
+                                        <td key={cell.id} className="p-2">
+                                            {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                        </td>
+                                    ))}
+                                </tr>
+                            )) :
+                            <tr>
+                                <td colSpan={columns.length} className="text-center p-4">
+                                    No se encontraron registros
+                                </td>
                             </tr>
-                        ))}
+                        }
                     </tbody>
                 </table>
             </div>
 
             {/* Paginación con números */}
             <div className="flex items-center justify-center gap-2 mt-4 flex-wrap">
-                <Pagination
-                    onChange={(e) => { console.log(e); table.setPageIndex(e - 1) }}
-                    initialPage={1}
-                    total={table.getPageCount()}
-                >
-                </Pagination>
+                {table.getPageCount() != 0 &&
+                    <Pagination
+                        onChange={(e) => { console.log(e); table.setPageIndex(e - 1) }}
+                        initialPage={1}
+                        total={table.getPageCount()}
+                    >
+                    </Pagination>
+                }
             </div>
         </section>
     )
