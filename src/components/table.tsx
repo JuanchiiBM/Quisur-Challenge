@@ -31,12 +31,12 @@ const Table = ({data, columns}: any) => {
                     placeholder="Buscar..."
                     value={globalFilter ?? ''}
                     onChange={e => setGlobalFilter(e.target.value)}
-                    className="border p-2 rounded w-full max-w-sm"
+                    className='border-default-200 transition-background rounded-lg p-2 focus-visible:outline-none focus:bg-background-100 bg-background-200 shadow-lg'
                 />
             </div>
 
-            <table className="min-w-full border border-default-300">
-                <thead className="bg-background-100">
+            <table className="min-w-full rounded-lg overflow-hidden shadow-lg">
+                <thead className="bg-background-100 border-b-1 border-b-default-400">
                     {table.getHeaderGroups().map(headerGroup => (
                         <tr key={headerGroup.id}>
                             {headerGroup.headers.map(header => (
@@ -57,8 +57,11 @@ const Table = ({data, columns}: any) => {
                     ))}
                 </thead>
                 <tbody>
-                    {table.getRowModel().rows.map(row => (
-                        <tr key={row.id} className="">
+                    {table.getRowModel().rows.map((row, index) => (
+                        <tr
+                            key={row.id}
+                            className={index % 2 === 0 ? 'bg-background-200' : 'bg-background-100'}
+                        >
                             {row.getVisibleCells().map(cell => (
                                 <td key={cell.id} className="p-2">
                                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
