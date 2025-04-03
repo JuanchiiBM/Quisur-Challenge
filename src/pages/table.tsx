@@ -1,6 +1,6 @@
 import DefaultLayout from '@/components/layout/main'
 import TableComponent from '@/components/table'
-import { personColumns, personData } from '@/types/personTable'
+import { personColumns, personData } from '@/config/data'
 
 const TablePage = () => {
     return (
