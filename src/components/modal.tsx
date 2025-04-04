@@ -5,14 +5,14 @@ import { useContextRegister } from '@/utils/context/useContextRegister'
 import { ModalProps } from '@/types/modalProps'
 
 const ModalComponent: React.FC<ModalProps> = ({children, isOpen, onClose, _dataObject, urlPost, text, size }) => {
-    const { contentTable }: { contentTable: any} = useContextRegister()
+    const { contentOfRegister }: { contentOfRegister: any} = useContextRegister()
 
     return createPortal(
         <Modal isDismissable={false} backdrop='blur' size={size} className='bg-background-100' isOpen={isOpen} onClose={onClose}>
             <ModalContent>
                 {(onClose: any) => (
                     <>
-                        <ModalHeader className="flex flex-col gap-1">{ contentTable ? `Editar ${text} cargado por ${contentTable.usuario}` : `Cargar ${text}`}</ModalHeader>
+                        <ModalHeader className="flex flex-col gap-1">{ contentOfRegister ? `Editar ${text} cargado por ${contentOfRegister.usuario}` : `Cargar ${text}`}</ModalHeader>
                         <ModalBody className='flex flex-row justify-center gap-0'>
                             <form id='register-charge' className='w-full flex flex-col justify-evenly'>
                                 {children}

@@ -2,14 +2,22 @@ import { Route, Routes } from "react-router-dom";
 
 import IndexPage from "@/pages/index";
 import TablePage from "./pages/table";
+import ViewPage from "./pages/view";
+import { GlobalContext } from "./utils/context/useGlobalContext";
+import { useState } from "react";
 
 function App() {
-  return (
-    <Routes>
-      <Route element={<IndexPage />} path="/" />
-      <Route element={<TablePage />} path="/tabla" />
-    </Routes>
-  );
+    const [spinner, setSpinner] = useState<boolean>(false)
+
+    return (
+        <GlobalContext.Provider value={{ spinner: spinner, setSpinner: setSpinner }}>
+            <Routes>
+                <Route element={<IndexPage />} path="/" />
+                <Route element={<TablePage />} path="/tabla" />
+                <Route element={<ViewPage />} path="/vista" />
+            </Routes>
+        </GlobalContext.Provider>
+    );
 }
 
 export default App;

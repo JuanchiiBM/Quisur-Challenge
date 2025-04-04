@@ -6,7 +6,7 @@ import exportToCSV from "@/utils/functions/exportToCSV"
 import { FC } from "react"
 
 const OptionsComponent: FC<OptionsProps> = ({ title, canCreate, canExportAsCSV, subtitle, columns, data, onOpen}) => {
-    const { setContentTable } = useContextRegister()
+    const { setContentOfRegister } = useContextRegister()
     return (
         <section className='bg-background-100 flex justify-between items-center py-4 px-8 w-full rounded-lg shadow-lg mb-8'>
             <h1 className="text-xl">{title}</h1>
@@ -21,7 +21,7 @@ const OptionsComponent: FC<OptionsProps> = ({ title, canCreate, canExportAsCSV, 
                 {canCreate && (
                     <Button startContent={<Icon icon="line-md:plus" className="p-0 m-0" width="20" height="20" />}
                     color="primary"
-                    onPress={() => {onOpen && onOpen(); setContentTable(undefined)} }
+                    onPress={() => {onOpen && onOpen(); setContentOfRegister(undefined)} }
                     title="Crear un elemento para la tabla"
                     > Crear {subtitle}</Button>
                 )}

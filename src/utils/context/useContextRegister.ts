@@ -3,8 +3,8 @@ import React, { createContext, useContext } from "react";
 interface ContextRegisterProps {
     refreshData?: number
     setRefreshData?: React.Dispatch<React.SetStateAction<number>>
-    contentTable: any | undefined
-    setContentTable: React.Dispatch<React.SetStateAction<any>>
+    contentOfRegister: any | undefined
+    setContentOfRegister: React.Dispatch<React.SetStateAction<any>>
     update?: boolean
     setUpdate?: React.Dispatch<React.SetStateAction<boolean>>;
     jsonData?: any
@@ -17,8 +17,8 @@ interface ContextRegisterProps {
 export const ContextRegister = createContext<ContextRegisterProps>({
     refreshData: 2,
     setRefreshData: () => { },
-    contentTable: undefined,
-    setContentTable: () => {},
+    contentOfRegister: undefined,
+    setContentOfRegister: () => {},
     update: false,
     setUpdate: () => {},
     jsonData: undefined,

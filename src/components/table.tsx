@@ -6,14 +6,18 @@ import {
     getPaginationRowModel,
     flexRender,
 } from '@tanstack/react-table'
-import { Button, Pagination } from '@heroui/react'
+import { Button, Pagination, Select, SelectItem, } from '@heroui/react'
 import { useState } from 'react'
 import { Icon } from '@iconify/react'
+import { QuestionAlert } from './sweetAlert'
 import { useContextRegister } from '@/utils/context/useContextRegister'
+import { SpinnerForTables } from './spinners'
+
+const tableSize = ['5', '10', '15', '20', '50']
 
 const Table = ({ data, columns, onOpen }: any) => {
     const [globalFilter, setGlobalFilter] = useState('')
-    const {setContentTable} = useContextRegister()
+    const { setContentOfRegister } = useContextRegister()
 
     const table = useReactTable({
         data,
@@ -23,16 +27,16 @@ const Table = ({ data, columns, onOpen }: any) => {
             cell: ({ row }) => {
                 const original = row.original
                 return (
-                    <div className="flex gap-2">
+                    <div className="flex justify-center gap-2">
                         <Button isIconOnly className="bg-warning text-white rounded text-sm h-6"
-                        startContent={<Icon icon="flowbite:edit-outline" width="20" height="20" />}
-                        onPress={() => {onOpen(); setContentTable(original)}}
-                        title='Editar registro'/>
+                            startContent={<Icon icon="flowbite:edit-outline" width="20" height="20" />}
+                            onPress={() => { onOpen(); setContentOfRegister(original) }}
+                            title='Editar registro' />
 
                         <Button isIconOnly className="bg-danger text-white rounded text-sm h-6"
-                        startContent={<Icon icon="famicons:trash" width="20" height="20" />}
-                        onPress={() => console.log(original)}
-                        title='Eliminar registro'/>
+                            startContent={<Icon icon="famicons:trash" width="20" height="20" />}
+                            onPress={() => QuestionAlert('¿Eliminar registro?', '¿Está seguro de eliminar este registro?', 'Eliminar', () => { })}
+                            title='Eliminar registro' />
                     </div>
                 )
             },
@@ -62,73 +66,84 @@ const Table = ({ data, columns, onOpen }: any) => {
                     placeholder="Buscar..."
                     value={globalFilter ?? ''}
                     onChange={e => setGlobalFilter(e.target.value)}
-                    className='transition-background rounded-lg p-2 focus-visible:outline-none focus:bg-background-200 bg-background-100 shadow-lg'
+                    className='transition-background rounded-lg p-2 focus-visible:outline-none focus:bg-background-200 bg-background-100 shadow-md'
                 />
 
                 {/* Selector de registros por página */}
                 <div className="flex items-center gap-2">
                     <span>Mostrar</span>
-                    <select
-                        value={table.getState().pagination.pageSize}
-                        onChange={(e) => table.setPageSize(Number(e.target.value))}
-                        className="rounded-lg p-2 focus:bg-background-200 bg-background-100 transition-background focus-visible:outline-none"
+                    <Select
+                        onChange={(e) => { table.setPageSize(Number(e.target.value)) }}
+                        disallowEmptySelection
+                        classNames={{
+                            trigger: 'rounded-lg shadow-md p-2 group-hover:bg-background-200 bg-background-100 transition-background w-20 focus-visible:outline-none'
+                        }}
+                        defaultSelectedKeys={['10']}
                     >
-                        {[5, 10, 15, 20, 50].map(size => (
-                            <option key={size} value={size}>
-                                {size}
-                            </option>
+                        {tableSize.map((tableSize) => (
+                            <SelectItem key={tableSize}>{tableSize}</SelectItem>
                         ))}
-                    </select>
+                    </Select>
                     <span>registros</span>
                 </div>
             </div>
 
             {/* Tabla */}
-            <div className="overflow-y-auto h-[28rem] bg-background-100 rounded-lg">
-                <table className="min-w-full rounded-lg overflow-hidden shadow-lg">
-                    <thead className="bg-background-100 border-b-1 border-b-default-400">
-                        {table.getHeaderGroups().map(headerGroup => (
-                            <tr key={headerGroup.id}>
-                                {headerGroup.headers.map(header => (
-                                    <th
-                                        key={header.id}
-                                        onClick={header.column.getToggleSortingHandler()}
-                                        className="p-2 cursor-pointer text-left"
+            <div className="overflow-y-auto h-[28rem] bg-background-100 rounded-lg shadow-lg">
+                {!data ? <SpinnerForTables/> : 
+                <table className="min-w-full rounded-lg overflow-hidden">
+                <thead className="bg-background-100 border-b-1 border-b-default-400">
+                    {table.getHeaderGroups().map(headerGroup => (
+                        <tr key={headerGroup.id} className='w-full'>
+                            {headerGroup.headers.map(header => (
+                                <th
+                                    key={header.id}
+                                    onClick={header.column.getToggleSortingHandler()}
+                                    className={`
+                                        p-2 text-left items-center gap-2
+                                        ${header.id === 'actions' ? 'text-center sticky right-0 bg-background-100 w-[150px] z-10' : ''}
+                                      `}                                    >
+                                    {flexRender(header.column.columnDef.header, header.getContext())}
+                                    {header.column.getIsSorted() === 'asc'
+                                        ? <Icon icon="solar:map-arrow-up-bold-duotone" className='ml-4 absolute inline-block' width="20" height="20" />
+                                        : header.column.getIsSorted() === 'desc'
+                                            ? <Icon icon="solar:map-arrow-down-bold-duotone" className='ml-4 absolute inline-block' width="20" height="20" />
+                                            : ''}
+                                </th>
+                            ))}
+                        </tr>
+                    ))}
+                </thead>
+                <tbody>
+                    {table.getPageCount() != 0 ?
+
+                        table.getRowModel().rows.map((row, index) => (
+                            <tr
+                                key={row.id}
+                                className={index % 2 === 0 ? 'bg-background-200' : 'bg-background-100'}
+                            >
+                                {row.getVisibleCells().map(cell => (
+                                    <td
+                                        key={cell.id}
+                                        className={`
+                                      p-2 whitespace-nowrap
+                                      ${cell.column.id === 'actions' ? 'sticky right-0 bg-background-100 w-[150px] z-10' : ''}
+                                    `}
                                     >
-                                        {flexRender(header.column.columnDef.header, header.getContext())}
-                                        {header.column.getIsSorted() === 'asc'
-                                            ? ' 🔼'
-                                            : header.column.getIsSorted() === 'desc'
-                                                ? ' 🔽'
-                                                : ''}
-                                    </th>
+                                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                    </td>
                                 ))}
                             </tr>
-                        ))}
-                    </thead>
-                    <tbody>
-                        {table.getPageCount() != 0 ?
-
-                            table.getRowModel().rows.map((row, index) => (
-                                <tr
-                                    key={row.id}
-                                    className={index % 2 === 0 ? 'bg-background-200' : 'bg-background-100'}
-                                >
-                                    {row.getVisibleCells().map(cell => (
-                                        <td key={cell.id} className="p-2">
-                                            {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                                        </td>
-                                    ))}
-                                </tr>
-                            )) :
-                            <tr>
-                                <td colSpan={columns.length} className="text-center p-4">
-                                    No se encontraron registros
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
+                        )) :
+                        <tr>
+                            <td colSpan={columns.length} className="text-center p-4">
+                                No se encontraron registros
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>}
+                
             </div>
 
             {/* Paginación con números */}

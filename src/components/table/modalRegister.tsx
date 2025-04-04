@@ -3,29 +3,29 @@ import { Input, Autocomplete, AutocompleteItem } from "@heroui/react"
 import { useEffect } from "react"
 
 const ModalRegister = () => {
-    const { contentTable } = useContextRegister()
+    const { contentOfRegister } = useContextRegister()
     useEffect(() => {
-        console.log(contentTable)
-    }, [contentTable])
+        console.log(contentOfRegister)
+    }, [contentOfRegister])
 
     return (
         <section className="gap-4 flex flex-col">
             <Input
                 label='Nombre'
                 labelPlacement="outside"
-                defaultValue={contentTable?.name}
+                defaultValue={contentOfRegister?.name}
             />
 
             <Input
                 label='Mail'
                 labelPlacement="outside"
-                defaultValue={contentTable?.email}
+                defaultValue={contentOfRegister?.email}
             />
 
             <Input
                 label='Ingreso'
                 labelPlacement="outside"
-                defaultValue={contentTable?.income}
+                defaultValue={contentOfRegister?.income}
             />
 
             <Autocomplete
