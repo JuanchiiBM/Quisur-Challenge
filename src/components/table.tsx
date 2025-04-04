@@ -6,15 +6,37 @@ import {
     getPaginationRowModel,
     flexRender,
 } from '@tanstack/react-table'
-import { Pagination } from '@heroui/react'
+import { Button, Pagination } from '@heroui/react'
 import { useState } from 'react'
+import { Icon } from '@iconify/react'
+import { useContextRegister } from '@/utils/context/useContextRegister'
 
-const Table = ({ data, columns }: any) => {
+const Table = ({ data, columns, onOpen }: any) => {
     const [globalFilter, setGlobalFilter] = useState('')
+    const {setContentTable} = useContextRegister()
 
     const table = useReactTable({
         data,
-        columns,
+        columns: [...columns, {
+            id: 'actions',
+            header: 'Acciones',
+            cell: ({ row }) => {
+                const original = row.original
+                return (
+                    <div className="flex gap-2">
+                        <Button isIconOnly className="bg-warning text-white rounded text-sm h-6"
+                        startContent={<Icon icon="flowbite:edit-outline" width="20" height="20" />}
+                        onPress={() => {onOpen(); setContentTable(original)}}
+                        title='Editar registro'/>
+
+                        <Button isIconOnly className="bg-danger text-white rounded text-sm h-6"
+                        startContent={<Icon icon="famicons:trash" width="20" height="20" />}
+                        onPress={() => console.log(original)}
+                        title='Eliminar registro'/>
+                    </div>
+                )
+            },
+        },],
         state: {
             globalFilter,
         },
@@ -113,7 +135,7 @@ const Table = ({ data, columns }: any) => {
             <div className="flex items-center justify-center gap-2 mt-4 flex-wrap">
                 {table.getPageCount() != 0 &&
                     <Pagination
-                        onChange={(e) => { console.log(e); table.setPageIndex(e - 1) }}
+                        onChange={(e) => { table.setPageIndex(e - 1) }}
                         initialPage={1}
                         total={table.getPageCount()}
                     >

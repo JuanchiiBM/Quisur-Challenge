@@ -8,7 +8,7 @@ const ModalComponent: React.FC<ModalProps> = ({children, isOpen, onClose, _dataO
     const { contentTable }: { contentTable: any} = useContextRegister()
 
     return createPortal(
-        <Modal isDismissable={false} backdrop='blur' size={size} className='bg-background' isOpen={isOpen} onClose={onClose}>
+        <Modal isDismissable={false} backdrop='blur' size={size} className='bg-background-100' isOpen={isOpen} onClose={onClose}>
             <ModalContent>
                 {(onClose: any) => (
                     <>
