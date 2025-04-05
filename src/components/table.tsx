@@ -7,7 +7,7 @@ import {
     flexRender,
 } from '@tanstack/react-table'
 import { Button, Pagination, Select, SelectItem, } from '@heroui/react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Icon } from '@iconify/react'
 import { QuestionAlert } from './sweetAlert'
 import { useContextRegister } from '@/utils/context/useContextRegister'
@@ -90,7 +90,7 @@ const Table = ({ data, columns, onOpen }: any) => {
 
             {/* Tabla */}
             <div className="overflow-y-auto h-[28rem] bg-background-100 rounded-lg shadow-lg">
-                {!data ? <SpinnerForTables/> : 
+                {data.length == 0 ? <SpinnerForTables/> : 
                 <table className="min-w-full rounded-lg overflow-hidden">
                 <thead className="bg-background-100 border-b-1 border-b-default-400">
                     {table.getHeaderGroups().map(headerGroup => (

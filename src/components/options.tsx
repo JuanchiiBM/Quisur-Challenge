@@ -2,7 +2,7 @@ import { OptionsProps } from "@/types/optionsProps"
 import { useContextRegister } from "@/utils/context/useContextRegister"
 import { Button } from "@heroui/react"
 import { Icon } from "@iconify/react"
-import exportToCSV from "@/utils/functions/exportToCSV"
+import exportToCSV from "@/utils/helpers/exportToCSV"
 import { FC } from "react"
 
 const OptionsComponent: FC<OptionsProps> = ({ title, canCreate, canExportAsCSV, subtitle, columns, data, onOpen}) => {

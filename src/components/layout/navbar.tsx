@@ -1,4 +1,4 @@
-import useIsMobile from '@/utils/functions/useIsMobile'
+import useIsMobile from '@/utils/helpers/useIsMobile'
 import { ThemeSwitch } from '../theme-switch'
 import { Button } from '@heroui/button'
 import { Icon } from '@iconify/react'

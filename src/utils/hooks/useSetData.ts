@@ -1,9 +1,9 @@
 import { ErrorAlert } from "@/components/sweetAlert";
 import { useGlobalContext } from "../context/useGlobalContext";
-import { GETFunction } from "@/utils/functions/fetchFunctions";
+import { GETFunction } from "@/utils/helpers/fetchFunctions";
 import { useEffect, useState } from "react";
 
-const useSetData = (endpoint: string) => {
+const useSetData = (endpoint: string, refreshData?: number) => {
     const [value, setValue] = useState<any>()
     const {setSpinner} = useGlobalContext()
 
@@ -11,10 +11,6 @@ const useSetData = (endpoint: string) => {
         try {
             setSpinner(true)
             const response = await GETFunction(endpoint);
-            // Añado esto para simular un retraso
-            setTimeout(() => {
-
-            }, 1000)
             setSpinner(false)
             setValue(response)
         } catch (error: any) {
@@ -24,8 +20,9 @@ const useSetData = (endpoint: string) => {
     };
 
     useEffect(() => {
+        console.log('EEEEEEEEEEEEEEEEEEEEEEEEEEEEE')
         setFunction();
-    }, []);
+    }, [refreshData]);
 
     return value;
 };

@@ -3,20 +3,20 @@ import { ProductProps } from "@/types/productProps";
 import useSetData from "@/utils/hooks/useSetData";
 import { useEffect, useState } from "react";
 
-const useGetProductsData = ({refreshData}: {refreshData?:number}) => {
+const useGetProductsData = ({refreshData}: {refreshData: number}) => {
     const [productData, setProductData] = useState<ProductProps[]>([]);
-    const value: ProductProps[] = useSetData("/products");
+    const value: ProductProps[] = useSetData("/products", refreshData);
 
     useEffect(() => {
-        if(value)
-        setProductData(value);
-    }, [value ,refreshData])
-
-    useEffect(() => {
-        console.log(productData)
-
-    }, [productData])
-
+        console.log('Effect triggered with refreshData:', refreshData);
+        if (value) {
+            setProductData([])
+            //Añado esto para simular un retraso
+            setTimeout(() => {
+                setProductData(value);
+            }, 1000);
+        }
+    }, [value, refreshData]);
 
     const productColumns: ColumnDef<ProductProps>[] = [
         {
@@ -26,7 +26,7 @@ const useGetProductsData = ({refreshData}: {refreshData?:number}) => {
         },
         {
             accessorKey: "name",
-            header: "Nombre",
+            header: "Producto",
             cell: (info) => info.getValue(),
         },
         {

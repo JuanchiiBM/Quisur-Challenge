@@ -1,6 +1,6 @@
 import Navbar from "./navbar";
 import Sidebar from "./sidebar";
-import useCollapsed from "@/utils/functions/useCollapsed";
+import useCollapsed from "@/utils/helpers/useCollapsed";
 
 const DefaultLayout = ({ children, title }: { children: React.ReactNode; title: string }) => {
     const { collapsed, setCollapsed } = useCollapsed();
