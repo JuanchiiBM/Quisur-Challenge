@@ -116,9 +116,9 @@ const Table = ({ data, columns, onOpen }: any) => {
                                       `}                                    >
                                             {flexRender(header.column.columnDef.header, header.getContext())}
                                             {header.column.getIsSorted() === 'asc'
-                                                ? <Icon icon="solar:map-arrow-up-bold-duotone" className='ml-1 absolute inline-block' width="20" height="20" />
+                                                ? <Icon icon="solar:arrow-up-broken" className='ml-1 absolute inline-block' width="20" height="20" />
                                                 : header.column.getIsSorted() === 'desc'
-                                                    ? <Icon icon="solar:map-arrow-down-bold-duotone" className='ml-1 absolute inline-block' width="20" height="20" />
+                                                    ? <Icon icon="solar:arrow-down-broken" className='ml-1 absolute inline-block' width="20" height="20" />
                                                     : ''}
                                         </th>
                                     ))}

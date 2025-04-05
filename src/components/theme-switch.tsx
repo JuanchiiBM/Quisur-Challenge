@@ -2,8 +2,8 @@ import { FC, useState, useEffect } from "react";
 import { VisuallyHidden } from "@react-aria/visually-hidden";
 import { SwitchProps, useSwitch } from "@heroui/switch";
 import clsx from "clsx";
-import { useTheme } from "@heroui/use-theme";
 import { Icon } from "@iconify/react"
+import { useGlobalContext } from "@/utils/context/useGlobalContext";
 
 export interface ThemeSwitchProps {
     className?: string;
@@ -16,7 +16,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
 }) => {
     const [isMounted, setIsMounted] = useState(false);
 
-    const { theme, setTheme } = useTheme();
+    const { theme, setTheme } = useGlobalContext();
 
     const {
         Component,

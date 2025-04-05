@@ -1,4 +1,3 @@
-import React from 'react'
 import { DELETEFunction } from '../helpers/fetchFunctions'
 import { ErrorAlert, SuccessAlert } from '@/components/sweetAlert'
 import { useContextRegister } from '../context/useContextRegister'

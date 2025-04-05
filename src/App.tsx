@@ -2,23 +2,29 @@ import { Route, Routes } from "react-router-dom";
 
 import IndexPage from "@/pages/index";
 import CRUDProduct from "./pages/CRUDProduct";
-import ViewPage from "./pages/view";
+import ViewProducts from "./pages/viewProducts";
 import { GlobalContext } from "./utils/context/useGlobalContext";
 import { useState } from "react";
+import { useTheme } from "@heroui/use-theme";
 
-//RESPONSIVE EN TABLA Y SACAR BOTON AL HACER PHONE!
 //Notificaciones con webSocket
-//View
+//Cambiar flecha de tabka
 
 function App() {
     const [spinner, setSpinner] = useState<boolean>(false)
+    const { theme, setTheme } = useTheme();
 
     return (
-        <GlobalContext.Provider value={{ spinner: spinner, setSpinner: setSpinner }}>
+        <GlobalContext.Provider value={{ 
+            spinner: spinner, 
+            setSpinner: setSpinner, 
+            setTheme: setTheme, 
+            theme: theme 
+        }}>
             <Routes>
                 <Route element={<IndexPage />} path="/" />
                 <Route element={<CRUDProduct />} path="/tabla" />
-                <Route element={<ViewPage />} path="/vista" />
+                <Route element={<ViewProducts />} path="/vista" />
             </Routes>
         </GlobalContext.Provider>
     );
