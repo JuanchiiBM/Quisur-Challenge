@@ -1,6 +1,7 @@
 import { ThemeSwitch } from '../theme-switch'
 import { Button } from '@heroui/button'
 import { Icon } from '@iconify/react'
+import Notifications from './notifications'
 import React from 'react'
 
 const Navbar = ({ collapsed, setCollapsed }: { collapsed: boolean, setCollapsed: React.Dispatch<React.SetStateAction<boolean>> }) => {
@@ -10,9 +11,12 @@ const Navbar = ({ collapsed, setCollapsed }: { collapsed: boolean, setCollapsed:
             <Button
                 isIconOnly
                 className='bg-transparent hover:bg-transparent active:bg-transparent focus:bg-transparent'
-                startContent={<Icon icon="line-md:menu" width="22" height="22" />} 
+                startContent={<Icon icon="line-md:menu" width="22" height="22" />}
                 onPress={() => setCollapsed((prev) => prev = !prev)} />
-            <ThemeSwitch />
+            <div className='flex gap-4'>
+                <Notifications />
+                <ThemeSwitch />
+            </div>
         </section>
     )
 }

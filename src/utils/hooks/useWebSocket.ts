@@ -1,8 +1,6 @@
 import { useEffect, useRef } from "react";
 
-//Esta función no tiene una verdadera utilidad ya que no tengo un endpoint formal para obtener y enviar datos. pero reemplazando el endpoint, funcionaría
-//Aunque se debería de agregar un userId para saber el destino al que la notificación debe de llegar
-const useWebSocket = (onMessage: (data: any) => void) => {
+const useWebSocket = (userId: number, onMessage: (data: any) => void) => {
   const socketRef = useRef<WebSocket | null>(null);
 
   useEffect(() => {
@@ -11,7 +9,7 @@ const useWebSocket = (onMessage: (data: any) => void) => {
 
     socket.onopen = () => {
       console.log("✅ Conectado al WebSocket");
-      socket.send(JSON.stringify({ type: "auth" }));
+      socket.send(JSON.stringify({ type: "auth", userId }));
     };
 
     socket.onmessage = (event) => {
@@ -26,7 +24,7 @@ const useWebSocket = (onMessage: (data: any) => void) => {
     return () => {
       socket.close();
     };
-  }, []);
+  }, [userId]);
 };
 
 export default useWebSocket;
