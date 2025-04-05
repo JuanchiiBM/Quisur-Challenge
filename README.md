@@ -1,50 +1,34 @@
-# Vite & HeroUI Template
+# Quisur Challenge - Gestión de Ingresos
 
-This is a template for creating applications using Vite and HeroUI (v2).
+Este proyecto es una aplicación de gestión de ingresos de productos, desarrollada con **Vite + React**, utilizando **ApexCharts** para visualización de datos y **json-server** como API mock para persistencia de datos. El sistema permite gestionar productos, categorías, visualizar estadísticas y enviar notificaciones en tiempo real mediante WebSocket.
 
-[Try it on CodeSandbox](https://githubbox.com/frontio-ai/vite-template)
+## Tecnologías principales
 
-## Technologies Used
+- **React (con Vite)**
+- **TypeScript**
+- **TailwindCSS + HeroUI**
+- **ApexCharts**
+- **json-server**
+- **WebSocket nativo**
+- **React Router Dom**
 
-- [Vite](https://vitejs.dev/guide/)
-- [HeroUI](https://heroui.com)
-- [Tailwind CSS](https://tailwindcss.com)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org)
-- [Framer Motion](https://www.framer.com/motion)
+---
 
-## How to Use
-
-To clone the project, run the following command:
-
+## Instalación
 ```bash
-git clone https://github.com/frontio-ai/vite-template.git
-```
-
-### Install dependencies
-
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
-
-```bash
+git clone https://github.com/tu-usuario/quisur-challenge.git
+cd quisur-challenge
 npm install
 ```
 
-### Run the development server
-
+## Iniciar Proyecto
 ```bash
+cd quisur-challenge
 npm run dev
 ```
 
-### Setup pnpm (optional)
-
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
-
+## Iniciar Mock
 ```bash
-public-hoist-pattern[]=*@heroui/*
+cd src/utils/json
+npm npx json-server --watch db.json --port 4000
 ```
-
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
-
-## License
-
-Licensed under the [MIT license](https://github.com/frontio-ai/vite-template/blob/main/LICENSE).
