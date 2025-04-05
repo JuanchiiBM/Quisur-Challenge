@@ -87,7 +87,7 @@ const Table = ({ data, columns, onOpen }: any) => {
                         onChange={(e) => { table.setPageSize(Number(e.target.value)) }}
                         disallowEmptySelection
                         classNames={{
-                            trigger: 'rounded-lg shadow-md p-2 group-hover:bg-background-200 bg-background-100 transition-background w-20 focus-visible:outline-none'
+                            trigger: 'rounded-lg shadow-md p-2 group-hover:bg-background-200 bg-background-100 transition-background min-w-20 max-w-full focus-visible:outline-none'
                         }}
                         defaultSelectedKeys={['10']}
                     >
