@@ -4,6 +4,7 @@ import { POSTFunction, PUTFunction } from "../helpers/fetchFunctions";
 import { useContextRegister } from "../context/useContextRegister";
 import { capitalizeFirstLetter } from "@/utils/helpers/capitalization";
 import { useGlobalContext } from "../context/useGlobalContext";
+import useWebSocket from "./useWebSocket";
 
 
 interface UsePostProps {
@@ -37,6 +38,8 @@ export const usePost = ({ onClose, _dataObject, urlPostAndPut, text }: UsePostPr
         setTimeout(() => {
             setSpinner(false)
             if (response) {
+                //Esta funcion es una simulación de lo que debería de hacer con webSocket
+                useWebSocket(() => `Registro cargado con exito`)
                 SuccessAlert(`${capitalizeFirstLetter(text)} Creado`, '', 'Ok', () => {
                     setRefreshData((prev) => prev = prev + 1)
                         if (onClose)
@@ -55,7 +58,9 @@ export const usePost = ({ onClose, _dataObject, urlPostAndPut, text }: UsePostPr
         setTimeout(() => {
             setSpinner(false)
             if (response) {
-                SuccessAlert(`${capitalizeFirstLetter(text)} Cargado`, '', 'Ok', () => {
+                //Esta funcion es una simulación de lo que debería de hacer con webSocket
+                useWebSocket(() => `Registro actualizado con exito`)
+                SuccessAlert(`${capitalizeFirstLetter(text)} Actualizado`, '', 'Ok', () => {
                     setRefreshData((prev) => prev = prev + 1)
                     if (onClose)
                         onClose()
