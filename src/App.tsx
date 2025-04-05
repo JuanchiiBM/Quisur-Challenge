@@ -6,6 +6,10 @@ import ViewPage from "./pages/view";
 import { GlobalContext } from "./utils/context/useGlobalContext";
 import { useState } from "react";
 
+//RESPONSIVE EN TABLA Y SACAR BOTON AL HACER PHONE!
+//Notificaciones con webSocket
+//View
+
 function App() {
     const [spinner, setSpinner] = useState<boolean>(false)
 

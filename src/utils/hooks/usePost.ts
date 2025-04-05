@@ -31,32 +31,39 @@ export const usePost = ({ onClose, _dataObject, urlPostAndPut, text }: UsePostPr
 
     const newRegister = async (_dataObject: any) => {
         _dataObject.acquisitionDate = new Date()
+        setSpinner(true)
         const response = await POSTFunction(`${urlPostAndPut}`, _dataObject)
-        console.log(response)
-        if (response) {
-            SuccessAlert(`${capitalizeFirstLetter(text)} Creado`, '', 'Ok', () => {
-                setRefreshData((prev) => prev = prev + 1)
-                    if (onClose)
-                    onClose()
-            })
-        } else if (response.error) {
-            ErrorAlert('Error', response.error, 'Ok')
-        }
+        //Se añade un timeout para simular la tardanza del fetch
+        setTimeout(() => {
+            setSpinner(false)
+            if (response) {
+                SuccessAlert(`${capitalizeFirstLetter(text)} Creado`, '', 'Ok', () => {
+                    setRefreshData((prev) => prev = prev + 1)
+                        if (onClose)
+                        onClose()
+                })
+            } else if (response.error) {
+                ErrorAlert('Error', response.error, 'Ok')
+            }
+        }, 1000)
     }
 
     const updateRegister = async (_dataObject: any) => {
+        setSpinner(true)
         const response = await PUTFunction(`${urlPostAndPut}/${_dataObject.id}`, _dataObject)
-        console.log(response)
-        setSpinner(false)
-        if (response) {
-            SuccessAlert(`${capitalizeFirstLetter(text)} Cargado`, '', 'Ok', () => {
-                setRefreshData((prev) => prev = prev + 1)
-                if (onClose)
-                    onClose()
-            })
-        } else if (response.error) {
-            ErrorAlert('Error', response.error, 'Ok')
-        }
+        //Se añade un timeout para simular la tardanza del fetch
+        setTimeout(() => {
+            setSpinner(false)
+            if (response) {
+                SuccessAlert(`${capitalizeFirstLetter(text)} Cargado`, '', 'Ok', () => {
+                    setRefreshData((prev) => prev = prev + 1)
+                    if (onClose)
+                        onClose()
+                })
+            } else if (response.error) {
+                ErrorAlert('Error', response.error, 'Ok')
+            }
+        }, 1000)
     }
 
     return { cargarIngreso }

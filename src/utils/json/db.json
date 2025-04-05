@@ -299,26 +299,6 @@
       "totalPrice": 12,
       "quantity": 12,
       "supplier": "12"
-    },
-    {
-      "id": 34,
-      "name": "sad",
-      "acquisitionDate": "2025-04-05T02:29:41.296Z",
-      "categoryId": 1,
-      "categoryName": "Limpieza",
-      "totalPrice": 23,
-      "quantity": 23,
-      "supplier": "23"
-    },
-    {
-      "name": "Arga",
-      "acquisitionDate": "2025-04-05T03:15:27.528Z",
-      "categoryId": 2,
-      "categoryName": "Ropa",
-      "totalPrice": 12,
-      "quantity": 12,
-      "supplier": "12",
-      "id": 35
     }
   ],
   "categories": [
