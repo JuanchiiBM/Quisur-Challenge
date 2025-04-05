@@ -1,0 +1,318 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Detergente",
+      "categoryId": 1,
+      "categoryName": "Limpieza",
+      "acquisitionDate": "2024-4-01",
+      "supplier": "Proveedor A",
+      "totalPrice": 50,
+      "quantity": 5
+    },
+    {
+      "id": 2,
+      "name": "Esponja",
+      "categoryId": 1,
+      "categoryName": "Limpieza",
+      "acquisitionDate": "2024-4-02",
+      "supplier": "Proveedor B",
+      "totalPrice": 20,
+      "quantity": 4
+    },
+    {
+      "id": 3,
+      "name": "Jabón líquido",
+      "categoryId": 1,
+      "categoryName": "Limpieza",
+      "acquisitionDate": "2024-4-03",
+      "supplier": "Proveedor C",
+      "totalPrice": 30,
+      "quantity": 3
+    },
+    {
+      "id": 4,
+      "name": "Limpiavidrios",
+      "categoryId": 1,
+      "categoryName": "Limpieza",
+      "acquisitionDate": "2024-4-04",
+      "supplier": "Proveedor A",
+      "totalPrice": 40,
+      "quantity": 4
+    },
+    {
+      "id": 5,
+      "name": "Desinfectante",
+      "categoryId": 1,
+      "categoryName": "Limpieza",
+      "acquisitionDate": "2024-4-05",
+      "supplier": "Proveedor B",
+      "totalPrice": 25,
+      "quantity": 2
+    },
+    {
+      "id": 6,
+      "name": "Trapeador",
+      "categoryId": 1,
+      "categoryName": "Limpieza",
+      "acquisitionDate": "2024-4-06",
+      "supplier": "Proveedor C",
+      "totalPrice": 15,
+      "quantity": 1
+    },
+    {
+      "id": 8,
+      "name": "Toallas de papel",
+      "categoryId": 1,
+      "categoryName": "Limpieza",
+      "acquisitionDate": "2024-4-08",
+      "supplier": "Proveedor B",
+      "totalPrice": 18,
+      "quantity": 6
+    },
+    {
+      "id": 9,
+      "name": "Cloro",
+      "categoryId": 1,
+      "categoryName": "Limpieza",
+      "acquisitionDate": "2024-4-09",
+      "supplier": "Proveedor C",
+      "totalPrice": 22,
+      "quantity": 8
+    },
+    {
+      "id": 10,
+      "name": "Ambientador",
+      "categoryId": 1,
+      "categoryName": "Limpieza",
+      "acquisitionDate": "2024-4-4",
+      "supplier": "Proveedor A",
+      "totalPrice": 12,
+      "quantity": 2
+    },
+    {
+      "id": 11,
+      "name": "Camiseta",
+      "categoryId": 2,
+      "categoryName": "Ropa",
+      "acquisitionDate": "2024-4-01",
+      "supplier": "Proveedor D",
+      "totalPrice": 40,
+      "quantity": 4
+    },
+    {
+      "id": 12,
+      "name": "Pantalón",
+      "categoryId": 2,
+      "categoryName": "Ropa",
+      "acquisitionDate": "2024-4-02",
+      "supplier": "Proveedor E",
+      "totalPrice": 200,
+      "quantity": 5
+    },
+    {
+      "id": 13,
+      "name": "Calcetines",
+      "categoryId": 2,
+      "categoryName": "Ropa",
+      "acquisitionDate": "2024-4-03",
+      "supplier": "Proveedor F",
+      "totalPrice": 50,
+      "quantity": 20
+    },
+    {
+      "id": 14,
+      "name": "Chaqueta",
+      "categoryId": 2,
+      "categoryName": "Ropa",
+      "acquisitionDate": "2024-4-04",
+      "supplier": "Proveedor D",
+      "totalPrice": 300,
+      "quantity": 3
+    },
+    {
+      "id": 15,
+      "name": "Zapatos",
+      "categoryId": 2,
+      "categoryName": "Ropa",
+      "acquisitionDate": "2024-4-05",
+      "supplier": "Proveedor E",
+      "totalPrice": 400,
+      "quantity": 4
+    },
+    {
+      "id": 16,
+      "name": "Sombrero",
+      "categoryId": 2,
+      "categoryName": "Ropa",
+      "acquisitionDate": "2024-4-06",
+      "supplier": "Proveedor F",
+      "totalPrice": 80,
+      "quantity": 8
+    },
+    {
+      "id": 17,
+      "name": "Bufanda",
+      "categoryId": 2,
+      "categoryName": "Ropa",
+      "acquisitionDate": "2024-4-07",
+      "supplier": "Proveedor D",
+      "totalPrice": 60,
+      "quantity": 6
+    },
+    {
+      "id": 18,
+      "name": "Guantes",
+      "categoryId": 2,
+      "categoryName": "Ropa",
+      "acquisitionDate": "2024-4-08",
+      "supplier": "Proveedor E",
+      "totalPrice": 40,
+      "quantity": 4
+    },
+    {
+      "id": 19,
+      "name": "Cinturón",
+      "categoryId": 2,
+      "categoryName": "Ropa",
+      "acquisitionDate": "2024-4-09",
+      "supplier": "Proveedor F",
+      "totalPrice": 30,
+      "quantity": 3
+    },
+    {
+      "id": 20,
+      "name": "Falda",
+      "categoryId": 2,
+      "categoryName": "Ropa",
+      "acquisitionDate": "2024-4-4",
+      "supplier": "Proveedor D",
+      "totalPrice": 120,
+      "quantity": 2
+    },
+    {
+      "id": 21,
+      "name": "Manzanas",
+      "categoryId": 3,
+      "categoryName": "Comida",
+      "acquisitionDate": "2024-4-01",
+      "supplier": "Proveedor G",
+      "totalPrice": 25,
+      "quantity": 4
+    },
+    {
+      "id": 22,
+      "name": "Plátanos",
+      "categoryId": 3,
+      "categoryName": "Comida",
+      "acquisitionDate": "2024-4-02",
+      "supplier": "Proveedor H",
+      "totalPrice": 20,
+      "quantity": 8
+    },
+    {
+      "id": 23,
+      "name": "Naranjas",
+      "categoryId": 3,
+      "categoryName": "Comida",
+      "acquisitionDate": "2024-4-03",
+      "supplier": "Proveedor I",
+      "totalPrice": 30,
+      "quantity": 12
+    },
+    {
+      "id": 24,
+      "name": "Leche",
+      "categoryId": 3,
+      "categoryName": "Comida",
+      "acquisitionDate": "2024-4-04",
+      "supplier": "Proveedor G",
+      "totalPrice": 15,
+      "quantity": 5
+    },
+    {
+      "id": 25,
+      "name": "Pan",
+      "categoryId": 3,
+      "categoryName": "Comida",
+      "acquisitionDate": "2024-4-05",
+      "supplier": "Proveedor H",
+      "totalPrice": 4,
+      "quantity": 4
+    },
+    {
+      "id": 26,
+      "name": "Huevos",
+      "categoryId": 3,
+      "categoryName": "Comida",
+      "acquisitionDate": "2024-4-06",
+      "supplier": "Proveedor I",
+      "totalPrice": 40,
+      "quantity": 20
+    },
+    {
+      "id": 27,
+      "name": "Queso",
+      "categoryId": 3,
+      "categoryName": "Comida",
+      "acquisitionDate": "2024-4-07",
+      "supplier": "Proveedor G",
+      "totalPrice": 50,
+      "quantity": 4
+    },
+    {
+      "id": 28,
+      "name": "Yogur",
+      "categoryId": 3,
+      "categoryName": "Comida",
+      "acquisitionDate": "2024-4-08",
+      "supplier": "Proveedor H",
+      "totalPrice": 35,
+      "quantity": 7
+    },
+    {
+      "id": 30,
+      "name": "Pescado",
+      "categoryId": 3,
+      "categoryName": "Comida",
+      "acquisitionDate": "2024-4-4",
+      "supplier": "Proveedor G",
+      "totalPrice": 80,
+      "quantity": 4
+    },
+    {
+      "id": 31,
+      "name": "Producto",
+      "acquisitionDate": "2025-04-05T02:04:30.465Z",
+      "categoryId": "1",
+      "categoryName": "Limpieza",
+      "totalPrice": "12",
+      "quantity": "12",
+      "supplier": "21"
+    },
+    {
+      "id": 32,
+      "name": "LOLOLOLO",
+      "acquisitionDate": "2025-04-05T02:21:41.168Z",
+      "categoryId": 1,
+      "categoryName": "Limpieza",
+      "totalPrice": 12,
+      "quantity": 12,
+      "supplier": "12"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Limpieza"
+    },
+    {
+      "id": "2",
+      "name": "Ropa"
+    },
+    {
+      "id": "3",
+      "name": "Comida"
+    }
+  ]
+}

@@ -19,7 +19,9 @@ export default {
           colors: {
             background: {
                 DEFAULT: '#efefef',
-                100: '#ffffff'
+                100: '#ffffff',
+                200: '#f1f1f1',
+                300: '#a2a2a2'
             }
           }
         },
@@ -27,7 +29,7 @@ export default {
           colors: {
             background: {
                 DEFAULT: '#000000',
-                100: '#111111',
+                100: '#161616',
                 200: '#1f1f1f',
                 300: '#2a2a2a'
             }
