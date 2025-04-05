@@ -7,9 +7,6 @@ import { GlobalContext } from "./utils/context/useGlobalContext";
 import { useState } from "react";
 import { useTheme } from "@heroui/use-theme";
 
-//Notificaciones con webSocket
-//Cambiar flecha de tabka
-
 function App() {
     const [spinner, setSpinner] = useState<boolean>(false)
     const { theme, setTheme } = useTheme();
