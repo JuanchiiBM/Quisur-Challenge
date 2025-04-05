@@ -291,14 +291,14 @@
       "supplier": "Proveedor CC"
     },
     {
-      "id": 30,
-      "name": "Producto 30",
-      "acquisitionDate": "2025-05-20T13:00:00.000Z",
-      "categoryId": "3",
+      "name": "Lalalal",
+      "acquisitionDate": "2025-04-05T22:30:46.695Z",
+      "categoryId": 3,
       "categoryName": "Comida",
-      "totalPrice": "45",
-      "quantity": "23",
-      "supplier": "Proveedor DD"
+      "totalPrice": 10,
+      "quantity": 10,
+      "supplier": "1000",
+      "id": 30
     }
   ],
   "categories": [

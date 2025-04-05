@@ -2,7 +2,7 @@ import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button, Badge } 
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { NotificationProps } from "@/types/notificationProps";
 import NotificationModal from "./notificationModal";
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import useSetData from "@/utils/hooks/useSetData";
 import useWebSocket from "@/utils/hooks/useWebSocket";
 
@@ -27,11 +27,11 @@ const Notifications = () => {
     });
 
 
-    const handleModal = (notification: NotificationProps) => {
+    const handleModal = useCallback((notification: NotificationProps) => {
         setSelectedNotification(notification)
         notification.saw = true
         setIsModalOpen(true)
-    }
+      }, []);
 
     return (
         <div>
