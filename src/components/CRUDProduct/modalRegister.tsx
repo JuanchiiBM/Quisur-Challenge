@@ -14,6 +14,7 @@ const ModalRegister = () => {
                     label='Producto'
                     labelPlacement="outside"
                     onChange={(e: any) => handleInputChange('name', e.target.value)} 
+                    required
                     defaultValue={contentOfRegister?.name}
                 />
                 {!categorys ?
@@ -21,8 +22,12 @@ const ModalRegister = () => {
                     <Autocomplete
                         label='Categoría'
                         isClearable
+                        isRequired
                         labelPlacement="outside"
-                        onSelectionChange={(e: any) => {handleInputChange('categoryId', e.split('_')[0]); handleInputChange('categoryName', e.split('_')[1])}} 
+                        listboxProps={{
+                            emptyContent: "Categoría inexistente.",
+                        }}
+                        onSelectionChange={(e: any) => {handleInputChange('categoryId', parseInt(e.split('_')[0])); handleInputChange('categoryName', e.split('_')[1])}} 
                     >
                         {categorys.map((category) => (
                             <AutocompleteItem key={`${category.id}_${category.name}`}>{category.name}</AutocompleteItem>
@@ -35,15 +40,17 @@ const ModalRegister = () => {
                 <Input
                     label='Cantidad'
                     labelPlacement="outside"
+                    required
                     type="number"
-                    onChange={(e: any) => handleInputChange('quantity', e.target.value)} 
+                    onChange={(e: any) => handleInputChange('quantity', parseInt(e.target.value))} 
                     defaultValue={contentOfRegister?.quantity}
                 />
                 <Input
                     label='Precio Total'
                     labelPlacement="outside"
+                    required
                     type="number"
-                    onChange={(e: any) => handleInputChange('totalPrice', e.target.value)} 
+                    onChange={(e: any) => handleInputChange('totalPrice', parseFloat(e.target.value))} 
                     defaultValue={contentOfRegister?.totalPrice}
                 />
             </div>
@@ -51,6 +58,7 @@ const ModalRegister = () => {
             <Input
                 label='Proveedor'
                 labelPlacement="outside"
+                required
                 onChange={(e: any) => handleInputChange('supplier', e.target.value)} 
                 defaultValue={contentOfRegister?.supplier}
             >

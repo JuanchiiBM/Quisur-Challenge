@@ -12,15 +12,17 @@ const useSetData = (endpoint: string, refreshData?: number) => {
             setSpinner(true)
             const response = await GETFunction(endpoint);
             setSpinner(false)
-            setValue(response)
+            if (response) { //En este caso sería necesario un response.ok o response.status == 'ok'
+                setValue(response)
+            } else if (response.error) { //A fines prácticos, asumimos que existe un parametro "error" si es que hay algún error
+                throw new Error(response.error)
+            }
         } catch (error: any) {
-            setSpinner(false)
             ErrorAlert('Error', error);
         }
     };
 
     useEffect(() => {
-        console.log('EEEEEEEEEEEEEEEEEEEEEEEEEEEEE')
         setFunction();
     }, [refreshData]);
 

@@ -7,16 +7,18 @@ import {
     flexRender,
 } from '@tanstack/react-table'
 import { Button, Pagination, Select, SelectItem, } from '@heroui/react'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Icon } from '@iconify/react'
 import { QuestionAlert } from './sweetAlert'
 import { useContextRegister } from '@/utils/context/useContextRegister'
 import { SpinnerForTables } from './spinners'
+import useDelete from '@/utils/hooks/useDelete'
 
 const tableSize = ['5', '10', '15', '20', '50']
 
 const Table = ({ data, columns, onOpen }: any) => {
     const [globalFilter, setGlobalFilter] = useState('')
+    const deleteRegister = useDelete()
     const { setContentOfRegister } = useContextRegister()
 
     const table = useReactTable({
@@ -25,7 +27,7 @@ const Table = ({ data, columns, onOpen }: any) => {
             id: 'actions',
             header: 'Acciones',
             cell: ({ row }) => {
-                const original = row.original
+                const original: any = row.original
                 return (
                     <div className="flex justify-center gap-2">
                         <Button isIconOnly className="bg-warning text-white rounded text-sm h-6"
@@ -35,7 +37,10 @@ const Table = ({ data, columns, onOpen }: any) => {
 
                         <Button isIconOnly className="bg-danger text-white rounded text-sm h-6"
                             startContent={<Icon icon="famicons:trash" width="20" height="20" />}
-                            onPress={() => QuestionAlert('¿Eliminar registro?', '¿Está seguro de eliminar este registro?', 'Eliminar', () => { })}
+                            onPress={() => QuestionAlert('¿Eliminar registro?', '¿Está seguro de eliminar este registro?', 'Eliminar', () => {
+                                console.log('entra1')
+                                deleteRegister('/products', original.id)
+                            })}
                             title='Eliminar registro' />
                     </div>
                 )
@@ -50,6 +55,12 @@ const Table = ({ data, columns, onOpen }: any) => {
         getSortedRowModel: getSortedRowModel(),
         getPaginationRowModel: getPaginationRowModel(),
         initialState: {
+            sorting: [
+                {
+                    id: "id",   
+                    desc: true
+                }
+            ],
             pagination: {
                 pageIndex: 0,
                 pageSize: 10,
@@ -90,60 +101,60 @@ const Table = ({ data, columns, onOpen }: any) => {
 
             {/* Tabla */}
             <div className="overflow-y-auto h-[28rem] bg-background-100 rounded-lg shadow-lg">
-                {data.length == 0 ? <SpinnerForTables/> : 
-                <table className="min-w-full rounded-lg overflow-hidden">
-                <thead className="bg-background-100 border-b-1 border-b-default-400">
-                    {table.getHeaderGroups().map(headerGroup => (
-                        <tr key={headerGroup.id} className='w-full'>
-                            {headerGroup.headers.map(header => (
-                                <th
-                                    key={header.id}
-                                    onClick={header.column.getToggleSortingHandler()}
-                                    className={`
+                {data.length == 0 ? <SpinnerForTables /> :
+                    <table className="min-w-full rounded-lg overflow-hidden">
+                        <thead className="bg-background-100 border-b-1 border-b-default-400">
+                            {table.getHeaderGroups().map(headerGroup => (
+                                <tr key={headerGroup.id} className='w-full'>
+                                    {headerGroup.headers.map(header => (
+                                        <th
+                                            key={header.id}
+                                            onClick={header.column.getToggleSortingHandler()}
+                                            className={`
                                         p-2 text-left items-center gap-2
                                         ${header.id === 'actions' ? 'text-center sticky right-0 bg-background-100 w-[150px] z-10' : ''}
                                       `}                                    >
-                                    {flexRender(header.column.columnDef.header, header.getContext())}
-                                    {header.column.getIsSorted() === 'asc'
-                                        ? <Icon icon="solar:map-arrow-up-bold-duotone" className='ml-4 absolute inline-block' width="20" height="20" />
-                                        : header.column.getIsSorted() === 'desc'
-                                            ? <Icon icon="solar:map-arrow-down-bold-duotone" className='ml-4 absolute inline-block' width="20" height="20" />
-                                            : ''}
-                                </th>
+                                            {flexRender(header.column.columnDef.header, header.getContext())}
+                                            {header.column.getIsSorted() === 'asc'
+                                                ? <Icon icon="solar:map-arrow-up-bold-duotone" className='ml-1 absolute inline-block' width="20" height="20" />
+                                                : header.column.getIsSorted() === 'desc'
+                                                    ? <Icon icon="solar:map-arrow-down-bold-duotone" className='ml-1 absolute inline-block' width="20" height="20" />
+                                                    : ''}
+                                        </th>
+                                    ))}
+                                </tr>
                             ))}
-                        </tr>
-                    ))}
-                </thead>
-                <tbody>
-                    {table.getPageCount() != 0 ?
+                        </thead>
+                        <tbody>
+                            {table.getPageCount() != 0 ?
 
-                        table.getRowModel().rows.map((row, index) => (
-                            <tr
-                                key={row.id}
-                                className={index % 2 === 0 ? 'bg-background-200' : 'bg-background-100'}
-                            >
-                                {row.getVisibleCells().map(cell => (
-                                    <td
-                                        key={cell.id}
-                                        className={`
+                                table.getRowModel().rows.map((row, index) => (
+                                    <tr
+                                        key={row.id}
+                                        className={index % 2 === 0 ? 'bg-background-200' : 'bg-background-100'}
+                                    >
+                                        {row.getVisibleCells().map(cell => (
+                                            <td
+                                                key={cell.id}
+                                                className={`
                                       p-2 whitespace-nowrap
                                       ${cell.column.id === 'actions' ? 'sticky right-0 bg-background-100 w-[150px] z-10' : ''}
                                     `}
-                                    >
-                                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                            >
+                                                {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                            </td>
+                                        ))}
+                                    </tr>
+                                )) :
+                                <tr>
+                                    <td colSpan={columns.length} className="text-center p-4">
+                                        No se encontraron registros
                                     </td>
-                                ))}
-                            </tr>
-                        )) :
-                        <tr>
-                            <td colSpan={columns.length} className="text-center p-4">
-                                No se encontraron registros
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>}
-                
+                                </tr>
+                            }
+                        </tbody>
+                    </table>}
+
             </div>
 
             {/* Paginación con números */}

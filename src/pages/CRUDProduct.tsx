@@ -2,18 +2,18 @@ import DefaultLayout from '@/components/layout/main'
 import TableComponent from '@/components/table'
 import OptionsComponent from '@/components/options'
 import ModalComponent from '@/components/modal'
-import ModalRegister from '@/components/table/modalRegister'
+import ModalRegister from '@/components/CRUDProduct/modalRegister'
 import { ContextRegister } from '@/utils/context/useContextRegister'
 import { useDisclosure } from '@heroui/react'
 import { ProductProps } from '@/types/productProps'
 import { useState } from 'react'
-import useGetProductsData from '@/utils/hooks/table/useGetProductsData'
-import useForm from '@/utils/hooks/table/useForm'
-import useSetDataObject from '@/utils/hooks/table/useSetDataObject'
+import useGetProductsData from '@/utils/hooks/CRUDProduct/useGetProductsData'
+import useForm from '@/utils/hooks/CRUDProduct/useForm'
+import useSetDataObject from '@/utils/hooks/CRUDProduct/useSetDataObject'
 
 const urlPostAndPut = '/products'
 
-const TablePage = () => {
+const CRUDProduct = () => {
     const {isOpen, onOpen, onClose} = useDisclosure()
     const [refreshData, setRefreshData] = useState<number>(0)
     const [isUpdate, setIsUpdate] = useState<boolean>(false)
@@ -46,5 +46,5 @@ const TablePage = () => {
     )
 }
 
-export default TablePage
+export default CRUDProduct
 

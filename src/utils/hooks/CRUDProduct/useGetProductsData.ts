@@ -8,7 +8,6 @@ const useGetProductsData = ({refreshData}: {refreshData: number}) => {
     const value: ProductProps[] = useSetData("/products", refreshData);
 
     useEffect(() => {
-        console.log('Effect triggered with refreshData:', refreshData);
         if (value) {
             setProductData([])
             //Añado esto para simular un retraso

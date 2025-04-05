@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 
 import IndexPage from "@/pages/index";
-import TablePage from "./pages/table";
+import CRUDProduct from "./pages/CRUDProduct";
 import ViewPage from "./pages/view";
 import { GlobalContext } from "./utils/context/useGlobalContext";
 import { useState } from "react";
@@ -13,7 +13,7 @@ function App() {
         <GlobalContext.Provider value={{ spinner: spinner, setSpinner: setSpinner }}>
             <Routes>
                 <Route element={<IndexPage />} path="/" />
-                <Route element={<TablePage />} path="/tabla" />
+                <Route element={<CRUDProduct />} path="/tabla" />
                 <Route element={<ViewPage />} path="/vista" />
             </Routes>
         </GlobalContext.Provider>

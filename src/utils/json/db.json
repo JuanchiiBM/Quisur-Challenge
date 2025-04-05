@@ -91,7 +91,7 @@
       "quantity": 8
     },
     {
-      "id": 4,
+      "id": 10,
       "name": "Ambientador",
       "categoryId": 1,
       "categoryName": "Limpieza",
@@ -301,262 +301,47 @@
       "quantity": 4
     },
     {
-      "id": "49c5"
-    },
-    {
-      "id": "81e7",
-      "name": "ASD",
-      "categoryId": "3",
-      "quantity": "2",
-      "supplier": "123"
-    },
-    {
-      "id": "bad1",
-      "name": "123",
-      "categoryId": "2",
-      "quantity": "123",
-      "supplier": "123"
-    },
-    {
-      "id": "9a76",
-      "name": "Trapo",
-      "categoryId": "1",
-      "categoryName": "Limpieza",
-      "quantity": "10",
-      "supplier": "Papa"
-    },
-    {
-      "id": "c6c6",
-      "name": "Trapo",
-      "acquisitionDate": "2025-04-05T00:57:41.176Z",
-      "categoryId": "1",
-      "categoryName": "Limpieza",
-      "totalPrice": "1000",
-      "quantity": "10",
-      "supplier": "Papa"
-    },
-    {
-      "id": "f9d9",
-      "name": "PAPAPAP",
-      "acquisitionDate": "2025-04-05T00:58:09.899Z",
-      "categoryId": "2",
-      "categoryName": "Ropa",
-      "totalPrice": "12",
-      "quantity": "12",
-      "supplier": "pepepep"
-    },
-    {
-      "id": "2866",
-      "name": "12",
-      "acquisitionDate": "2025-04-05T01:00:07.342Z",
+      "id": 31,
+      "name": "Producto",
+      "acquisitionDate": "2025-04-05T02:04:30.465Z",
       "categoryId": "1",
       "categoryName": "Limpieza",
       "totalPrice": "12",
       "quantity": "12",
-      "supplier": "12"
+      "supplier": "21"
     },
     {
-      "id": "55ca",
       "name": "123",
-      "acquisitionDate": "2025-04-05T01:01:20.779Z",
-      "categoryId": "1",
+      "acquisitionDate": "2025-04-05T02:21:41.168Z",
+      "categoryId": 1,
       "categoryName": "Limpieza",
-      "totalPrice": "123",
-      "quantity": "123",
-      "supplier": "123"
+      "totalPrice": 12,
+      "quantity": 12,
+      "supplier": "12",
+      "id": 32
     },
     {
-      "id": "0406",
-      "name": "132",
-      "acquisitionDate": "2025-04-05T01:03:22.259Z",
-      "categoryId": "2",
-      "categoryName": "Ropa",
-      "totalPrice": "123",
-      "quantity": "123",
-      "supplier": "123"
-    },
-    {
-      "id": "ecb1",
-      "name": "132",
-      "acquisitionDate": "2025-04-05T01:03:44.759Z",
-      "categoryId": "2",
-      "categoryName": "Ropa",
-      "totalPrice": "123",
-      "quantity": "123",
-      "supplier": "123"
-    },
-    {
-      "id": "1bf4",
-      "name": "1",
-      "acquisitionDate": "2025-04-05T01:04:50.082Z",
-      "categoryId": "1",
+      "name": "Producto",
+      "acquisitionDate": "2025-04-05T02:29:41.296Z",
+      "categoryId": 1,
       "categoryName": "Limpieza",
-      "totalPrice": "1",
-      "quantity": "1",
-      "supplier": "1"
-    },
-    {
-      "id": "9f59",
-      "name": "1",
-      "acquisitionDate": "2025-04-05T01:05:28.661Z",
-      "categoryId": "1",
-      "categoryName": "Limpieza",
-      "totalPrice": "1",
-      "quantity": "1",
-      "supplier": "1"
-    },
-    {
-      "id": "18bc",
-      "name": "123123",
-      "acquisitionDate": "2025-04-05T01:07:43.094Z",
-      "categoryId": "1",
-      "categoryName": "Limpieza",
-      "totalPrice": "123123",
-      "quantity": "123123",
-      "supplier": "123123"
-    },
-    {
-      "id": "92bc",
-      "name": "DSADAS",
-      "acquisitionDate": "2025-04-05T01:08:38.246Z",
-      "categoryId": "2",
-      "categoryName": "Ropa",
-      "totalPrice": "222",
-      "quantity": "2222",
-      "supplier": "PASDPASD"
-    },
-    {
-      "id": "530a",
-      "name": "DSADSA",
-      "acquisitionDate": "2025-04-05T01:09:13.144Z",
-      "categoryId": "1",
-      "categoryName": "Limpieza",
-      "totalPrice": "2",
-      "quantity": "2",
-      "supplier": "2"
-    },
-    {
-      "id": "912b",
-      "name": "123",
-      "acquisitionDate": "2025-04-05T01:19:43.419Z",
-      "categoryId": "1",
-      "categoryName": "Limpieza",
-      "totalPrice": "123",
-      "quantity": "123",
-      "supplier": "123"
-    },
-    {
-      "id": "c7ff",
-      "name": "123",
-      "acquisitionDate": "2025-04-05T01:24:07.458Z",
-      "categoryId": "1",
-      "categoryName": "Limpieza",
-      "totalPrice": "123",
-      "quantity": "123",
-      "supplier": "123"
-    },
-    {
-      "id": "0533",
-      "name": "123",
-      "acquisitionDate": "2025-04-05T01:25:23.956Z",
-      "categoryId": "1",
-      "categoryName": "Limpieza",
-      "totalPrice": "123",
-      "quantity": "123",
-      "supplier": "1"
-    },
-    {
-      "id": "8066",
-      "name": "123",
-      "acquisitionDate": "2025-04-05T01:31:03.953Z",
-      "categoryId": "1",
-      "categoryName": "Limpieza",
-      "totalPrice": "123",
-      "quantity": "123",
-      "supplier": "123"
-    },
-    {
-      "id": "884f",
-      "name": "12",
-      "acquisitionDate": "2025-04-05T01:33:53.001Z",
-      "categoryId": "1",
-      "categoryName": "Limpieza",
-      "totalPrice": "12",
-      "quantity": "12",
-      "supplier": "12"
-    },
-    {
-      "id": "077c",
-      "name": "NONO",
-      "acquisitionDate": "2025-04-05T01:34:32.931Z",
-      "categoryId": "1",
-      "categoryName": "Limpieza",
-      "totalPrice": "11",
-      "quantity": "11",
-      "supplier": "NONONO"
-    },
-    {
-      "id": "920a",
-      "name": "12",
-      "acquisitionDate": "2025-04-05T01:36:15.064Z",
-      "categoryId": "1",
-      "categoryName": "Limpieza",
-      "totalPrice": "12",
-      "quantity": "12",
-      "supplier": "12"
-    },
-    {
-      "id": "e88d",
-      "name": "123",
-      "acquisitionDate": "2025-04-05T01:44:15.539Z",
-      "categoryId": "1",
-      "categoryName": "Limpieza",
-      "totalPrice": "123",
-      "quantity": "123",
-      "supplier": "123"
-    },
-    {
-      "id": "d2e9",
-      "name": "1",
-      "acquisitionDate": "2025-04-05T01:46:32.076Z",
-      "categoryId": "1",
-      "categoryName": "Limpieza",
-      "totalPrice": "11",
-      "quantity": "11",
-      "supplier": "11"
-    },
-    {
-      "id": "ed11",
-      "name": "123123123",
-      "acquisitionDate": "2025-04-05T01:48:24.958Z",
-      "categoryId": "1",
-      "categoryName": "Limpieza",
-      "totalPrice": "123123",
-      "quantity": "123123",
-      "supplier": "123"
-    },
-    {
-      "id": "aab0",
-      "name": "LALALALALALA",
-      "acquisitionDate": "2025-04-05T01:48:38.784Z",
-      "categoryId": "1",
-      "categoryName": "Limpieza",
-      "totalPrice": "123",
-      "quantity": "123",
-      "supplier": "123"
+      "totalPrice": 23,
+      "quantity": 23,
+      "supplier": "23",
+      "id": 34
     }
   ],
   "categories": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Limpieza"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Ropa"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Comida"
     }
   ]
