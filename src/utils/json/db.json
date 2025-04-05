@@ -61,16 +61,6 @@
       "quantity": 1
     },
     {
-      "id": 7,
-      "name": "Escoba",
-      "categoryId": 1,
-      "categoryName": "Limpieza",
-      "acquisitionDate": "2024-4-07",
-      "supplier": "Proveedor A",
-      "totalPrice": 35,
-      "quantity": 7
-    },
-    {
       "id": 8,
       "name": "Toallas de papel",
       "categoryId": 1,
@@ -281,16 +271,6 @@
       "quantity": 7
     },
     {
-      "id": 29,
-      "name": "Carne",
-      "categoryId": 3,
-      "categoryName": "Comida",
-      "acquisitionDate": "2024-4-09",
-      "supplier": "Proveedor I",
-      "totalPrice": 40,
-      "quantity": 5
-    },
-    {
       "id": 30,
       "name": "Pescado",
       "categoryId": 3,
@@ -311,24 +291,34 @@
       "supplier": "21"
     },
     {
-      "name": "123",
+      "id": 32,
+      "name": "LOLOLOLO",
       "acquisitionDate": "2025-04-05T02:21:41.168Z",
       "categoryId": 1,
       "categoryName": "Limpieza",
       "totalPrice": 12,
       "quantity": 12,
-      "supplier": "12",
-      "id": 32
+      "supplier": "12"
     },
     {
-      "name": "Producto",
+      "id": 34,
+      "name": "sad",
       "acquisitionDate": "2025-04-05T02:29:41.296Z",
       "categoryId": 1,
       "categoryName": "Limpieza",
       "totalPrice": 23,
       "quantity": 23,
-      "supplier": "23",
-      "id": 34
+      "supplier": "23"
+    },
+    {
+      "name": "Arga",
+      "acquisitionDate": "2025-04-05T03:15:27.528Z",
+      "categoryId": 2,
+      "categoryName": "Ropa",
+      "totalPrice": 12,
+      "quantity": 12,
+      "supplier": "12",
+      "id": 35
     }
   ],
   "categories": [

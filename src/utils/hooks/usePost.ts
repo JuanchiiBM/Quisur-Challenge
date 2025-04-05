@@ -21,9 +21,9 @@ export const usePost = ({ onClose, _dataObject, urlPostAndPut, text }: UsePostPr
         e.preventDefault()
 
         if (!isUpdate) {
-            console.log(_dataObject)
             newRegister(_dataObject)
         } else {
+            console.log(_dataObject)
             updateRegister(_dataObject)
         }
 

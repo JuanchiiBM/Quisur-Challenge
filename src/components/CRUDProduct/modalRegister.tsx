@@ -1,10 +1,11 @@
 import { CategoryProps } from "@/types/categoryProps"
+import { ProductProps } from "@/types/productProps"
 import { useContextRegister } from "@/utils/context/useContextRegister"
 import useSetData from "@/utils/hooks/useSetData"
 import { Input, Autocomplete, AutocompleteItem } from "@heroui/react"
 
 const ModalRegister = () => {
-    const { contentOfRegister, handleInputChange } = useContextRegister()
+    const { contentOfRegister, handleInputChange }: {contentOfRegister: ProductProps, handleInputChange: any} = useContextRegister()
     const categorys: CategoryProps[] = useSetData('/categories')
 
     return (
@@ -24,6 +25,7 @@ const ModalRegister = () => {
                         isClearable
                         isRequired
                         labelPlacement="outside"
+                        defaultSelectedKey={`${contentOfRegister?.categoryId}_${contentOfRegister?.categoryName}`}
                         listboxProps={{
                             emptyContent: "Categoría inexistente.",
                         }}
@@ -43,7 +45,7 @@ const ModalRegister = () => {
                     required
                     type="number"
                     onChange={(e: any) => handleInputChange('quantity', parseInt(e.target.value))} 
-                    defaultValue={contentOfRegister?.quantity}
+                    defaultValue={contentOfRegister?.quantity.toString()}
                 />
                 <Input
                     label='Precio Total'
@@ -51,10 +53,9 @@ const ModalRegister = () => {
                     required
                     type="number"
                     onChange={(e: any) => handleInputChange('totalPrice', parseFloat(e.target.value))} 
-                    defaultValue={contentOfRegister?.totalPrice}
+                    defaultValue={contentOfRegister?.totalPrice.toString()}
                 />
             </div>
-            {/*Llenar*/}
             <Input
                 label='Proveedor'
                 labelPlacement="outside"

@@ -8,7 +8,6 @@ const useDelete = () => {
 
     const deleteRegister = async (endpoint: string, id: string | number) => {
         try {
-            console.log('entra2')
             const response = await DELETEFunction(`${endpoint}/${id}`)
             if (response) {
                 SuccessAlert('Registro borrado', 'El registro a sido borrado exitosamente', undefined, () => {

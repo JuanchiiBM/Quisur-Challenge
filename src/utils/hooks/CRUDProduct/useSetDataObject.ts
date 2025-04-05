@@ -1,8 +1,10 @@
 import { ProductProps } from "@/types/productProps"
+import { useEffect } from "react"
 
 const useSetDataObject = ({ dataForm }: { dataForm?: ProductProps}) => {
 
     const _dataObject = {
+        id: dataForm?.id,
         name: dataForm?.name,
         acquisitionDate: dataForm?.acquisitionDate,
         categoryId: dataForm?.categoryId,

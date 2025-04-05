@@ -19,7 +19,7 @@ const tableSize = ['5', '10', '15', '20', '50']
 const Table = ({ data, columns, onOpen }: any) => {
     const [globalFilter, setGlobalFilter] = useState('')
     const deleteRegister = useDelete()
-    const { setContentOfRegister } = useContextRegister()
+    const { setContentOfRegister, setIsUpdate } = useContextRegister()
 
     const table = useReactTable({
         data,
@@ -32,7 +32,7 @@ const Table = ({ data, columns, onOpen }: any) => {
                     <div className="flex justify-center gap-2">
                         <Button isIconOnly className="bg-warning text-white rounded text-sm h-6"
                             startContent={<Icon icon="flowbite:edit-outline" width="20" height="20" />}
-                            onPress={() => { onOpen(); setContentOfRegister(original) }}
+                            onPress={() => { onOpen(); setContentOfRegister(original); setIsUpdate(true) }}
                             title='Editar registro' />
 
                         <Button isIconOnly className="bg-danger text-white rounded text-sm h-6"

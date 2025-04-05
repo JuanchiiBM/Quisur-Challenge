@@ -8,6 +8,7 @@ interface ContextRegisterProps {
     isUpdate: boolean
     setIsUpdate: React.Dispatch<React.SetStateAction<boolean>>;
     dataForm: any
+    setDataForm: React.Dispatch<React.SetStateAction<any>>;
     handleInputChange: (field: any, value: any) => void
 }
 
@@ -20,6 +21,7 @@ export const ContextRegister = createContext<ContextRegisterProps>({
     isUpdate: false,
     setIsUpdate: () => {},
     dataForm: {},
+    setDataForm: () => {},
     handleInputChange: () => {}
 });
 

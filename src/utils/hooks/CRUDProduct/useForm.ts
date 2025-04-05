@@ -16,7 +16,7 @@ const useForm = () => {
         console.log(dataForm)
     }, [dataForm])
 
-    return {dataForm, handleInputChange}
+    return {dataForm, setDataForm, handleInputChange}
 }
 
 export default useForm

@@ -10,18 +10,21 @@ import { useState } from 'react'
 import useGetProductsData from '@/utils/hooks/CRUDProduct/useGetProductsData'
 import useForm from '@/utils/hooks/CRUDProduct/useForm'
 import useSetDataObject from '@/utils/hooks/CRUDProduct/useSetDataObject'
+import useUpdate from '@/utils/hooks/CRUDProduct/useUpdate'
 
 const urlPostAndPut = '/products'
 
 const CRUDProduct = () => {
     const {isOpen, onOpen, onClose} = useDisclosure()
     const [refreshData, setRefreshData] = useState<number>(0)
+    const [contentOfRegister, setContentOfRegister] = useState<ProductProps | undefined>(undefined)
     const [isUpdate, setIsUpdate] = useState<boolean>(false)
 
-    const { dataForm, handleInputChange } = useForm()
+    const { dataForm, setDataForm, handleInputChange } = useForm()
     const { _dataObject } = useSetDataObject({ dataForm })
 
-    const [contentOfRegister, setContentOfRegister] = useState<ProductProps | undefined>(undefined)
+    useUpdate({ setDataForm, contentOfRegister, isOpen })
+
     const { productColumns, productData } = useGetProductsData({refreshData})
 
     return (
@@ -31,6 +34,7 @@ const CRUDProduct = () => {
             refreshData: refreshData,
             setRefreshData: setRefreshData,
             dataForm: dataForm,
+            setDataForm: setDataForm,
             handleInputChange: handleInputChange,
             isUpdate: isUpdate,
             setIsUpdate: setIsUpdate
