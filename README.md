@@ -30,5 +30,5 @@ npm run dev
 ## Iniciar Mock
 ```bash
 cd src/utils/json
-npm npx json-server --watch db.json --port 4000
+npm json-server --watch db.json --port 4000
 ```
